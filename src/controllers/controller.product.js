@@ -28,6 +28,7 @@ async function createProduct(req, res) {
   try {
     const product = new Product(req.body);
     await product.save();
+    console.log(product);
     res.status(201).send(product);
   } catch (err) {
     res.status(500).send(err);

@@ -1,17 +1,9 @@
 const mongoose = require("mongoose");
-
-const DB_URI = process.env.DB_URI;
-
+const dbName = "db-carnes";
+const server = "mongodb://127.0.0.1:27017/" + dbName;
 mongoose
-  .connect(DB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Conexión a la base de datos establecida");
-  })
-  .catch((err) => {
-    console.error("Error al conectar a la base de datos:", err.message);
-  });
+  .connect(server, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Conectado a MongoDB"))
+  .catch((err) => console.log("Error de conexión con MongoDB"));
 
-module.exports = mongoose.connection;
+module.exports = mongoose;

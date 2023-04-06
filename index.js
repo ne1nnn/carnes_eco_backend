@@ -2,21 +2,15 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./db");
 const productRoutes = require("./src/routes/product.routes");
+require("dotenv").config();
 
 const app = express();
 
 // Habilitar CORS
 app.use(cors());
-
+console.log(process.env.DB_URI);
 // Habilitar el análisis del cuerpo de las solicitudes en formato JSON
 app.use(express.json());
-
-// Conectar a la base de datos
-db.on(
-  "error",
-  console.error.bind(console, "Error de conexión a la base de datos:")
-);
-db.once("open", () => console.log("Conexión a la base de datos establecida"));
 
 // Utilizar las rutas de Product
 app.use("/products", productRoutes);
