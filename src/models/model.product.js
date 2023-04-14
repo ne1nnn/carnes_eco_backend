@@ -10,7 +10,7 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    type: Buffer,
+    type: String,
     required: false,
   },
   description: {
@@ -20,10 +20,6 @@ const productSchema = new mongoose.Schema({
   recipe: {
     type: String,
     required: false,
-  },
-  imgId: {
-    type: String,
-    require: true,
   },
 });
 
