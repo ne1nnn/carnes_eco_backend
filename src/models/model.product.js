@@ -7,15 +7,15 @@ const productSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: true,
+    required: false,
   },
   image: {
-    type: String,
+    type: Buffer,
     required: false,
   },
   description: {
     type: String,
-    required: true,
+    required: false,
   },
   recipe: {
     type: String,
