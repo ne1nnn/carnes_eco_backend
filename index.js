@@ -8,22 +8,16 @@ const multer = require("multer");
 
 const app = express();
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + "-" + Date.now());
-  },
-});
 
-const upload = multer({ storage: storage });
+
+
+
 //Middlewares
 
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
-app.use(upload.single("image"));
+
 
 //Routes
 app.use("/", productRoutes);
