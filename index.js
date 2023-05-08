@@ -3,30 +3,31 @@ const cors = require("cors");
 const db = require("./db");
 const productRoutes = require("./src/routes/product.routes");
 const morgan = require("morgan");
+const imageRoutes = require("./src/routes/images.routes");
 require("dotenv").config();
-const multer = require("multer");
 
 const app = express();
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + "-" + Date.now());
-  },
-});
+<<<<<<< HEAD
+=======
 
-const upload = multer({ storage: storage });
+
+
+
+>>>>>>> 80f368a5397a14ee73bb24811d063c16d2c3cf99
 //Middlewares
 
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
-app.use(upload.single("image"));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 80f368a5397a14ee73bb24811d063c16d2c3cf99
 
 //Routes
 app.use("/", productRoutes);
+app.use("/", imageRoutes);
 
 //config sv
 const PORT = process.env.PORT || 4000;
