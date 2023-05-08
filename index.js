@@ -8,22 +8,11 @@ require("dotenv").config();
 
 const app = express();
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 80f368a5397a14ee73bb24811d063c16d2c3cf99
 //Middlewares
 
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
-<<<<<<< HEAD
-=======
-
->>>>>>> 80f368a5397a14ee73bb24811d063c16d2c3cf99
 
 //Routes
 app.use("/", productRoutes);

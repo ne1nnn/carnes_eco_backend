@@ -26,7 +26,13 @@ async function getProductById(req, res) {
 // Controlador para la ruta POST /products
 async function createProduct(req, res) {
   try {
-    const product = new Product(req.body);
+    const product = new Product({
+      title: req.body.title,
+      price: req.body.price,
+      image: req.file.filename, // Nombre de la imagen guardada en el servidor
+      description: req.body.description,
+      recipe: req.body.recipe,
+    });
     await product.save();
     console.log(product);
     res.status(201).send(product);
