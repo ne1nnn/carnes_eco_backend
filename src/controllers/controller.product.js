@@ -31,7 +31,7 @@ async function createProduct(req, res) {
       price: req.body.price,
       image: req.file.filename, // Nombre de la imagen guardada en el servidor
       description: req.body.description,
-      recipe: req.body.recipe,
+      stock: req.body.stock,
     });
     await product.save();
     console.log(product);

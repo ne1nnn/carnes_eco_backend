@@ -17,8 +17,8 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  recipe: {
-    type: String,
+  stock: {
+    type: Number,
     required: false,
   },
 });
